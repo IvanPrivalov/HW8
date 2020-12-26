@@ -33,7 +33,7 @@ cd /vagrant
 cat report.log
 ```
 
-# Вывод
+## Вывод
 <details><summary>Пример вывода</summary>
 <p>
 
@@ -93,26 +93,26 @@ cat report.log
 </p>
 </details>
 
-## Проверка того, что отчет делается с даты последнего запуска скрипта
+# Проверка того, что отчет делается с даты последнего запуска скрипта
 
-# Если скрип запускался ранее, необходимо удалить endtime.log
+## Если скрип запускался ранее, необходимо удалить endtime.log
 
 ```shell
 rm /vagrant/endtime.log
 ```
 
-# Разделим access.log на два файла с разной датой
+## Разделим access.log на два файла с разной датой
 
 ```shell
 sed -e '1,659 d' access.log >> access2.log
 sed -i '660,700 d' access.log 
 ```
-# Запускаем скрип logreport.sh
+## Запускаем скрип logreport.sh
 
 ```shell
 ./logreport.sh
 ```
-# Вывод отчета с 14/Aug/2019:04:12:10 по 14/Aug/2019:23:50:27
+## Вывод отчета с 14/Aug/2019:04:12:10 по 14/Aug/2019:23:50:27
 
 ```shell
 cat report.log
@@ -176,19 +176,19 @@ cat report.log
 </p>
 </details>
 
-# Добавим в access.log информацию из access2.log 
+## Добавим в access.log информацию из access2.log 
 
 ```shell
 cat access2.log >> access.log
 ```
 
-# Выполним скрипт
+## Выполним скрипт
 
 ```shell
 ./logreport.sh
 ```
 
-# Вывод отчета  с последней даты запуска скрипта 14/Aug/2019:23:50:27 по 15/Aug/2019:00:25:46
+## Вывод отчета  с последней даты запуска скрипта 14/Aug/2019:23:50:27 по 15/Aug/2019:00:25:46
 
 ```shell
 cat report.log
